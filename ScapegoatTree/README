@@ -1,0 +1,59 @@
+Author:Emanuel Brici
+Email: emanuel.brici@wsu.edu
+
+Project Scapegoat:
+    Scapegoat will build a binary search tree with a few difference in how
+    insert and delete are implemented. Search in Scapegoat is implemented
+    in the same way as in a traditional Binary search Tree. Insert and delete
+    however have a few differences. When inserting keys into scapegoat, after
+    a traditional insert, a check is made to see if the tree needs to re-balance
+    it self. If re-balancing is needed, a scapegoat node is found which is
+    an ancestor of the most recently added node. A rebuild is done on that
+    node and its children and then added back to the original tree. The same
+    works with delete. The only difference is that after every delete the
+    tree is checked to see if it needs to be re-balanced.
+
+Program Details:
+	Input: A file containing a list of commands and inputs for those commands.
+	    The input file will have a new command on each new line. You can assume all
+	    tree values are positive integers and that there are no duplicates. Call
+	    this file tree.txt
+	Output: Output of the tree is printed to ScapeGoatTree.svg file which is
+	    in the same directory as the one with the source code. This file is
+	    to be opened in a web browser. A pretty tree should display. The source
+	    code for tree printer was taken from Dr. Cochran, a professor at Washington
+	    State University Vancouver.
+
+Input Commands are:
+    BuildTree alpha, key - Assume that the input file contains one call to
+    BuildTree on the first line. This call creates a new tree with alpha
+    weight and a first node containing key as a value. All operations for
+    that input file are on this tree. An example tree.txt file is provided.
+    This file can be modified in any way as long input conventions are held.
+
+    Input Conventions:
+        Insert key – given an integer key, create a new node with key value;
+                     and insert it into the tree.
+    	Search key – find a specified key in the tree if it exists, otherwise
+    	             give an error message.
+    	Delete key – delete the specified key from the tree.
+    	Print – prints the tree structure. Your output does not need to be
+    	        fancy but should be fairly easy for the grader to interrupt as a tree structure.
+    	Done – exit the program.
+
+Build Scapegoat:
+    $ javac ScapegoatTree.java TreePrinter.java Node.java
+    $ java ScapegoatTree
+      Example output:
+      256 not found when searched in SGT
+      33 found when searched in SGT
+      SVG file created. Open in web browser to view tree.
+      Exiting
+
+Files:
+ScapegoatTree.java........Implementation of Scapegoat Tree.
+Node.java.................Node that is used for Scapegoat Tree.
+TreePrinter.java..........Prints Scapegoat tree to SVG file.
+README....................This file.
+ScapeGoatTree.svg.........Example output of Scapegoat when alpha is .5.
+tree.txt..................Example Input used to create example SVG file.
